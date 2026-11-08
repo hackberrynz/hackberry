@@ -4,7 +4,7 @@ const { title, class: className, id } = Astro.props;
 
 <div class={`text-lg scroll-mt-24 ${className}`} id={id}>
 	{title && (
-			<h1>{title}</h1>
+			<h2>{title}</h2>
 			<div class="divider divider-accent" />
 	)}
 	<slot />
