@@ -16,6 +16,7 @@ export const event = {
 	hours: hours,
 	description: `${hours} hours of youth hacking. More details at ${url}`,
 	signUp: "https://forms.fillout.com/t/sdomEGAG6hus",
+	ogImage: new URL("/favicon.svg", url).href,
 };
 
 export const contact = {
@@ -46,7 +47,7 @@ export const eventSchema = {
 			addressCountry: "NZ",
 		},
 	},
-	image: [new URL("/favicon.svg", url).href],
+	image: [event.ogImage],
 	organizer: {
 		"@type": "Organization",
 		name: event.name,

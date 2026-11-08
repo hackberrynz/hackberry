@@ -18,6 +18,8 @@ const speculationRules = {
 		},
 	],
 };
+
+const title = `${event.name} - ${event.hours} hour youth hackathon in Tauranga`;
 ---
 
 <!doctype html>
@@ -28,11 +30,24 @@ const speculationRules = {
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 		<link rel="icon" href="/favicon.ico">
 		<meta name="generator" content={Astro.generator}>
-		<title>{event.name} - {event.hours} hour youth hackathon in Tauranga</title>
+		<title>{title}</title>
 		<meta name="description" content={description}>
 
 		<!-- event structured data (for search engines mainly) -->
 		<script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+
+		<!-- social media data -->
+		<meta property="og:type" content="website">
+		<meta property="og:site_name" content="Hackberry">
+		<meta property="og:title" content={title}>
+		<meta property="og:description" content={description}>
+		<meta property="og:url" content={event.url}>
+		<meta property="og:image" content={event.ogImage}>
+		<meta property="og:image:alt" content="Hackberry hackathon banner">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content={title}>
+		<meta name="twitter:description" content={description}>
+		<meta name="twitter:image" content={event.ogImage}>
 
 		<!-- a script that decodes base64 encoded text in the browser to stop scraping -->
 		<script src="../scripts/scrapeProtection.ts" />
