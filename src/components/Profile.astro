@@ -39,7 +39,7 @@ import { Icon } from "astro-icon/components";
 	<div class="card-body">
 		<h2 class="card-title">{name}</h2>
 		<slot />
-		<div class="text-2xl absolute bottom-6 right-6 flex gap-2">
+		<div class="text-2xl w-full mt-auto flex justify-end gap-2">
 			{socials.map((social) => (
 				<a
 					data-encoded={btoa(social.href)}
