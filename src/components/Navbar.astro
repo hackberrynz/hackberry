@@ -16,14 +16,18 @@ const links = [
 		id="mobile-menu"
 		class="group max-lg:collapse max-lg:target:collapse-open scroll-mt-0 bg-base-300 shadow-sm w-full rounded-md"
 	>
-		<!-- backdrop: only exists while the menu is open; closes it without scrolling -->
-		<a href="#!" class="fixed inset-0 hidden max-lg:group-target:block">
+		<!-- backdrop: only exists while the menu is open; sits behind the menu contents; closes it without scrolling -->
+		<a href="#!" class="fixed inset-0 -z-10 hidden max-lg:group-target:block">
 			<span class="sr-only">Close menu</span>
 		</a>
 
 		<div class="collapse-title navbar">
 			<div class="navbar-start">
-				<a href="#mobile-menu" class="btn btn-ghost lg:hidden">
+				<!-- open button: hidden while the menu is open -->
+				<a
+					href="#mobile-menu"
+					class="btn btn-ghost lg:hidden group-target:hidden"
+				>
 					<svg
 						aria-hidden="true"
 						xmlns="http://www.w3.org/2000/svg"
@@ -40,6 +44,28 @@ const links = [
 						/>
 					</svg>
 					<span class="sr-only">Open menu</span>
+				</a>
+				<!-- close button: only shown while the menu is open (mobile only) -->
+				<a
+					href="#!"
+					class="btn btn-ghost hidden max-lg:group-target:inline-flex"
+				>
+					<svg
+						aria-hidden="true"
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-5 w-5"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M6 6l12 12M18 6L6 18"
+						/>
+					</svg>
+					<span class="sr-only">Close menu</span>
 				</a>
 				<a class="btn btn-ghost text-4xl text-accent font-mono" href="/">
 					<Icon name="logo" class="mr-4"></Icon>
