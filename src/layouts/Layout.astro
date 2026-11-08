@@ -8,7 +8,7 @@ const { description, classes } = Astro.props;
 import geistUrl from "@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2?url";
 import hankenUrl from "@fontsource-variable/hanken-grotesk/files/hanken-grotesk-latin-wght-normal.woff2?url";
 
-import { event } from "../data/data.ts";
+import { event, eventSchema } from "../data/data.ts";
 
 const speculationRules = {
 	prefetch: [
@@ -34,6 +34,9 @@ const speculationRules = {
 		<meta name="generator" content={Astro.generator}>
 		<title>{event.name} - {event.hours} hour youth hackathon in Tauranga</title>
 		<meta name="description" content={description}>
+
+		<!-- event structured data (for search engines mainly) -->
+		<script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
 
 		<!-- a script that decodes base64 encoded text in the browser to stop scraping -->
 		<script src="../scripts/scrapeProtection.ts" />

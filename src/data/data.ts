@@ -25,3 +25,38 @@ export const contact = {
 	instagram: "@hackberry.nz",
 	github: "hackberrynz",
 };
+
+export const eventSchema = {
+	"@context": "https://schema.org",
+	"@type": "Event",
+	name: event.name,
+	description: event.description,
+	startDate: start,
+	endDate: end,
+	eventStatus: "https://schema.org/EventScheduled",
+	eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+	location: {
+		"@type": "Place",
+		name: "Basestation",
+		address: {
+			"@type": "PostalAddress",
+			streetAddress: "148 Durham Street",
+			addressLocality: "Tauranga",
+			postalCode: "3110",
+			addressCountry: "NZ",
+		},
+	},
+	image: [new URL("/favicon.svg", url).href],
+	organizer: {
+		"@type": "Organization",
+		name: event.name,
+		url: url,
+	},
+	offers: {
+		"@type": "Offer",
+		url: event.signUp,
+		price: "0",
+		priceCurrency: "NZD",
+		availability: "https://schema.org/InStock",
+	},
+};
