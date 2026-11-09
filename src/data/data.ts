@@ -1,7 +1,7 @@
 const domain = "hackberry.nz";
 const url = `https://${domain}`;
 const start = new Date("2027-02-27T09:00:00+13:00");
-const end = new Date("2027-02-28T09:00:00+13:00");
+const end = new Date("2027-02-27T21:00:00+13:00");
 const hours = 12;
 
 // event details
