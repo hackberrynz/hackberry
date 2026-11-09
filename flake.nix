@@ -17,8 +17,15 @@
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             bun
+            inkscape
           ];
 
+          FONTCONFIG_FILE = pkgs.makeFontsConf {
+            fontDirectories = [
+              pkgs.geist-font
+              pkgs.hanken-grotesk
+            ];
+          };
           LD_LIBRARY_PATH = with pkgs; pkgs.lib.makeLibraryPath [ vips stdenv.cc.cc.lib ];
         };
       }
