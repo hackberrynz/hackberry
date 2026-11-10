@@ -76,6 +76,12 @@ export const schedule = [
 		icon: "lucide:rocket",
 	},
 	{
+		start: new Date("2027-02-27T09:30:00+13:00"),
+		title: "Beginner Workshop",
+		desc: "Get started",
+		icon: "lucide:face-grinning",
+	},
+	{
 		start: new Date("2027-02-27T12:30:00+13:00"),
 		title: "Lunch",
 		desc: "Take a break",
