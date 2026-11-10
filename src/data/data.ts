@@ -1,7 +1,7 @@
 const domain = "hackberry.nz";
 const url = `https://${domain}`;
-const start = new Date("2027-02-27T09:00:00+13:00");
-const end = new Date("2027-02-27T21:00:00+13:00");
+const start = new Date("2027-02-27T08:30:00+13:00");
+const end = new Date("2027-02-27T20:30:00+13:00");
 const hours = 12;
 
 // event details
@@ -61,3 +61,42 @@ export const eventSchema = {
 		availability: "https://schema.org/InStock",
 	},
 };
+
+export const schedule = [
+	{
+		start: start,
+		title: "Doors open",
+		desc: "Arrival and check in",
+		icon: "lucide:door-open",
+	},
+	{
+		start: new Date("2027-02-27T09:00:00+13:00"),
+		title: "Kickoff",
+		desc: "Challenge reveal and team forming",
+		icon: "lucide:rocket",
+	},
+	{
+		start: new Date("2027-02-27T12:30:00+13:00"),
+		title: "Lunch",
+		desc: "Take a break",
+		icon: "lucide:grape",
+	},
+	{
+		start: new Date("2027-02-27T17:30:00+13:00"),
+		title: "Dinner",
+		desc: "Take another break",
+		icon: "lucide:pizza",
+	},
+	{
+		start: new Date("2027-02-27T19:00:00+13:00"),
+		title: "Demos and judging",
+		desc: "Stop coding and share your work",
+		icon: "lucide:podium",
+	},
+	{
+		start: end,
+		title: "Doors close",
+		desc: "All done!",
+		icon: "lucide:door-closed",
+	},
+];

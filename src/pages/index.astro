@@ -1,6 +1,7 @@
 ---
 import Banner from "../components/Banner.astro";
 import Contact from "../components/Contact.astro";
+import Event from "../components/Event.astro";
 import Faq from "../components/Faq.astro";
 import Main from "../components/Main.astro";
 import Separator from "../components/Separator.astro";
@@ -18,6 +19,8 @@ import Layout from "../layouts/Layout.astro";
 	<Banner heading={event.name} subheading="Tauranga's first youth hackathon!" />
 	<Main>
 		<Summary />
+		<Separator />
+		<Event />
 		<Separator />
 		<Team />
 		<Separator />

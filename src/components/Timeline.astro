@@ -1,0 +1,31 @@
+---
+import { Icon } from "astro-icon/components";
+import { schedule } from "../data/data.ts";
+
+const timeFmt = new Intl.DateTimeFormat("en-US", {
+	timeZone: "Pacific/Auckland",
+	hour: "numeric",
+	minute: "2-digit",
+});
+---
+
+<ul class="timeline timeline-vertical max-md:timeline-compact">
+	{schedule.map((e, i) => (
+		<li>
+			{i > 0 && <hr class="bg-primary" />}
+			<div class={i % 2 === 0 ? "timeline-start md:text-end" : "timeline-end"}>
+				<div class="bg-base-300 rounded-box p-4 mt-1">
+					<h3 class="font-bold">{e.title}</h3>
+					<time datetime={e.start.toISOString()} class="text-sm font-semibold">
+						{timeFmt.format(new Date(e.start))}
+					</time>
+					<p class="text-sm text-muted">{e.desc}</p>
+				</div>
+			</div>
+			<div class="timeline-middle text-xl text-accent">
+				<Icon name={e.icon}></Icon>
+			</div>
+			{i < schedule.length - 1 && <hr class="bg-primary" />}
+		</li>
+	))}
+</ul>
