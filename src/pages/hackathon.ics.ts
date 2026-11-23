@@ -9,8 +9,14 @@ export const GET: APIRoute = () => {
 		"BEGIN:VEVENT",
 		`UID:${event.uid}`,
 		`DTSTAMP:${new Date().toISOString().replace(/[-:]|\.\d{3}/g, "")}`,
-		`DTSTART:${event.start}`,
-		`DTEND:${event.end}`,
+		`DTSTART:${event.start
+			.toISOString()
+			.replace(/[-:]/g, "")
+			.replace(/\.\d{3}/, "")}`,
+		`DTEND:${event.end
+			.toISOString()
+			.replace(/[-:]/g, "")
+			.replace(/\.\d{3}/, "")}`,
 		`SUMMARY:${event.name}`,
 		`LOCATION:${event.address}`,
 		`URL:${event.url}`,
