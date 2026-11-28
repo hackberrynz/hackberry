@@ -1,24 +1,12 @@
-import { readFile } from "node:fs/promises";
-import { Resvg } from "@resvg/resvg-js";
 import type { APIRoute } from "astro";
-import sharp from "sharp";
+import { pngResponse, renderSvg } from "../lib/render-svg";
 
-export const GET: APIRoute = async () => {
-	const svg = await readFile("public/favicon.svg");
-	const resvg = new Resvg(svg, {
-		font: {
-			loadSystemFonts: true,
-		},
-	});
-	const rendered = resvg.render().asPng();
-
-	const png = await sharp(rendered)
-		.resize(1080, 1080, { fit: "contain", background: "#15191e" })
-		.flatten({ background: "#15191e" })
-		.png()
-		.toBuffer();
-
-	return new Response(new Uint8Array(png), {
-		headers: { "Content-Type": "image/png" },
-	});
-};
+export const GET: APIRoute = async () =>
+  pngResponse(
+    await renderSvg({
+      svgPath: "public/favicon.svg",
+      width: 1080,
+      height: 1080,
+      background: "#15191e",
+    }),
+  );
