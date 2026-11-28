@@ -14,6 +14,7 @@ export const GET: APIRoute = async () => {
 
 	const png = await sharp(rendered)
 		.resize(1080, 1080, { fit: "contain", background: "#15191e" })
+		.flatten({ background: "#15191e" })
 		.png()
 		.toBuffer();
 
